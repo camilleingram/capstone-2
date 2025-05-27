@@ -6,7 +6,7 @@ public class Bread {
     private int sandwichSize = 0;
 
 
-    public Bread(String breadType, double price, int sandwichSize) {
+    public Bread(String breadType, int sandwichSize) {
         this.breadType = breadType;
         this.price = price;
         this.sandwichSize = sandwichSize;

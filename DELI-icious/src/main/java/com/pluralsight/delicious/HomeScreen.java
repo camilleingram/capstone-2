@@ -13,7 +13,7 @@ public class HomeScreen {
         switch(command) {
             case 1:
                 customerName = askForName(scanner);
-                System.out.printf("Welcome, %s!", customerName);
+                System.out.printf("Welcome, %s! ", customerName);
                 Customer customer = new Customer(customerName);
                 Order newOrder = new Order();
                 newOrder.displayMenu();
@@ -26,7 +26,7 @@ public class HomeScreen {
 
     public int askIfOrdering(Scanner scanner) {
         System.out.println("Would you like to place an order?");
-        System.out.println("1. Yes please!" + "\n" + "0. No thank you"  );
+        System.out.println("1. Yes please!\n0. No thank you"  );
         int command = scanner.nextInt();
         scanner.nextLine();
         return command;
