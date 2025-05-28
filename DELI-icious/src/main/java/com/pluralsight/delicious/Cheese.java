@@ -6,13 +6,30 @@ import java.util.List;
 public class Cheese extends PremiumTopping{
 
     private String cheeseType = "";
-    private List<Cheese> cheeses = new ArrayList<>();
+    private List<Topping> cheeses = new ArrayList<>();
 
+    public Cheese(boolean isExtra, int sandwichSize, String cheeseType) {
+        super(isExtra, sandwichSize);
+        this.cheeseType = cheeseType;
+    }
 
+    public String getCheeseType() {
+        return cheeseType;
+    }
 
-    public double calculateCheese() {
+    public List<Topping> getCheeses() {
+        return cheeses;
+    }
+
+    @Override
+    public void addTopping(Topping cheese) {
+        cheeses.add((Topping) cheese);
+    }
+
+    @Override
+    public double calculatePrice() {
         double total = 0;
-        for(Cheese cheese: cheeses) {
+        for(Topping cheese: cheeses) {
             switch(super.getSandwichSize()) {
                 case 4:
                     if(isExtra()) {

@@ -11,7 +11,7 @@ public class Sandwich {
 
     public Sandwich(String bread, List<Topping> toppings, boolean isToasted, int sandwichSize) {
         this.bread = bread;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
         this.sandwichSize = sandwichSize;
     }
@@ -27,33 +27,30 @@ public class Sandwich {
 
     public static class Builder {
         private String bread = "";
-        private List<Topping> toppings;
+        private List<Topping> toppings = new ArrayList<>();
+        private List<Topping> sauces = new ArrayList<>();
         private boolean isToasted;
         private int sandwichSize = 0;
 
-        public Builder setBread(String bread) {
+        public void setBread(String bread) {
             this.bread = bread;
-            return this;
         }
 
-        public Builder setToppings(List<Topping> toppings) {
-            this.toppings = toppings;
-            return this;
-        }
-
-        public Builder setToasted(boolean toasted) {
+        public void setToasted(boolean toasted) {
             isToasted = toasted;
-            return this;
         }
 
-        public Builder setSandwichSize(int sandwichSize) {
+
+        public void setSandwichSize(int sandwichSize) {
             this.sandwichSize = sandwichSize;
-            return this;
         }
 
-        public Builder addTopping(Topping topping) {
+        public void addSauce(Topping sauce) {
+            this.sauces.add(sauce);
+        }
+
+        public void addTopping(Topping topping) {
             this.toppings.add(topping);
-            return this;
         }
 
         public Sandwich build() {

@@ -24,7 +24,9 @@ public abstract class PremiumTopping implements Topping{
         return sandwichSize;
     }
 
-    @Override
+
     public abstract double calculatePrice();
 
+    @Override
+    public abstract void addTopping(Topping topping);
 }

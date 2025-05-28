@@ -6,7 +6,7 @@ import java.util.List;
 public class Meat extends PremiumTopping{
 
     private String meatType = "";
-    private List<Meat> meats = new ArrayList<>();
+    private List<Topping> meats = new ArrayList<>();
 
     public Meat(boolean isExtra, int sandwichSize, String meatType) {
         super(isExtra, sandwichSize);
@@ -18,18 +18,19 @@ public class Meat extends PremiumTopping{
     }
 
 
-    public List<Meat> getMeats() {
+    public List<Topping> getMeats() {
         return meats;
     }
 
-    public void addMeat(Meat meat) {
-        meats.add(meat);
+    @Override
+    public void addTopping(Topping meat) {
+        meats.add((Topping) meat);
     }
 
     @Override
     public double calculatePrice() {
         double total = 0;
-        for(Meat meat : meats) {
+        for(Topping meat : meats) {
             switch(super.getSandwichSize()) {
                 case 4:
                     if(isExtra()) {
