@@ -6,17 +6,17 @@ import java.util.List;
 public class Meat extends PremiumTopping{
 
     private String meatType = "";
-    private List<Meat> meats;
+    private List<Meat> meats = new ArrayList<>();
 
     public Meat(boolean isExtra, int sandwichSize, String meatType) {
         super(isExtra, sandwichSize);
         this.meatType = meatType;
-        this.meats = new ArrayList<>();
     }
 
     public String getMeatType() {
         return meatType;
     }
+
 
     public List<Meat> getMeats() {
         return meats;

@@ -3,15 +3,12 @@ package com.pluralsight.delicious;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cheese extends Topping{
+public class Cheese extends PremiumTopping{
 
     private String cheeseType = "";
     private List<Cheese> cheeses = new ArrayList<>();
 
-    public Cheese(int sandwichSize, boolean isExtra, String cheeseType) {
-        super(sandwichSize, isExtra);
-        this.cheeseType = cheeseType;
-    }
+
 
     public double calculateCheese() {
         double total = 0;

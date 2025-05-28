@@ -30,8 +30,7 @@ public class Order {
             case 1:
             AddSandwichScreen sandwichScreen = new AddSandwichScreen();
             sandwichScreen.displaySandwichScreen();
-            Sandwich addedSandwich =
-
+            break;
         }
 
     }

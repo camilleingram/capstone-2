@@ -16,34 +16,55 @@ public class AddSandwichScreen {
     private List<Topping> toppings = new ArrayList<>();
 
     public void displaySandwichScreen() {
+        Sandwich.Builder sandwichBuilder = new Sandwich.Builder();
+
         int breadIndex = askForBread(scanner);
         String breadChoice = breadTypes[breadIndex];
+//        setting the bread for the sandwich
+        sandwichBuilder.setBread(breadChoice);
         System.out.printf("You have selected %s bread%n", breadChoice);
 
         int sandwichSize = askForSize(scanner);
+//        setting the sandwich size
+        sandwichBuilder.setSandwichSize(sandwichSize);
         System.out.printf("You have selected the %d-inch sandwich", sandwichSize);
 
+        int meatIndex = askForMeat(scanner);
+        while(meatIndex != 0) {
+            String meatChoice = meatTypes[meatIndex - 1];
+
+            Meat addedMeat = new Meat(false, askForSize(scanner), meatChoice);
+
+            System.out.printf("Would you like extra %s%n", meatChoice);
+            String extraMeat = scanner.nextLine();
+
+            if(extraMeat.equalsIgnoreCase("Yes")) {
+                addedMeat.setExtra(true);
+                System.out.printf("You asked for extra %s", meatChoice);
+            } else if(extraMeat.equalsIgnoreCase("No")) {
+                System.out.println("No extra meat was added.");
+            }
+//            adding a topping to the toppings array for every iteration
+            sandwichBuilder.addTopping(addedMeat);
+            addedMeat.addMeat(addedMeat);
+            meatIndex = askForMeat(scanner);
+        }
 
 
     }
 
-    public Meat askForMeat(Scanner scanner) {
+    public int askForMeat(Scanner scanner) {
         System.out.println("What meat would you like? ");
         int toppingCounter = 1;
         for(String meat : meatTypes) {
             System.out.printf("%d. %s%n", toppingCounter++, meat);
         }
-        System.out.println("0. I don't want any meat");
+        System.out.println("0. Move onto cheese");
 
-        int meatChoice = scanner.nextInt();
+        int meatIndex = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.printf("Would you like extra %s", meatTypes[meatChoice - 1]);
-        String extraMeat = scanner.nextLine();
-
-        if(extraMeat.equalsIgnoreCase("Yes")) {
-            Meat meat = new Meat()
-        }
+        return meatIndex;
 
     }
 
