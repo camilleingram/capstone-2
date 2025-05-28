@@ -28,7 +28,9 @@ public class Order {
 
         switch(order) {
             case 1:
-
+            AddSandwichScreen sandwichScreen = new AddSandwichScreen();
+            sandwichScreen.displaySandwichScreen();
+            Sandwich addedSandwich =
 
         }
 
@@ -41,12 +43,6 @@ public class Order {
         return order;
     }
 
-    public int askForBread(Scanner scanner) {
-        System.out.println("What kind of bread would you like?");
-        System.out.println("1. White\n 2. Wheat\n 3. Rye\n 4. Wrap");
-        int bread = scanner.nextInt();
-        scanner.nextLine();
-        return bread;
-    }
+
 
 }

@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
-    private Bread bread = null;
+    private String bread = "";
     private List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(Bread bread, List<Topping> toppings, boolean isToasted) {
+    public Sandwich(String bread, List<Topping> toppings, boolean isToasted) {
         this.bread = bread;
         this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
 
-
-    public Bread getBread() {
+    public String getBread() {
         return bread;
     }
 

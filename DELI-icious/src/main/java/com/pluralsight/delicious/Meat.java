@@ -3,16 +3,16 @@ package com.pluralsight.delicious;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Meat extends Topping{
+public class Meat extends PremiumTopping{
 
     private String meatType = "";
-    private List<Meat> meats = new ArrayList<>();
+    private List<Meat> meats;
 
-    public Meat(int sandwichSize, boolean isExtra, String meatType) {
-        super(sandwichSize, isExtra);
+    public Meat(boolean isExtra, int sandwichSize, String meatType) {
+        super(isExtra, sandwichSize);
         this.meatType = meatType;
+        this.meats = new ArrayList<>();
     }
-
 
     public String getMeatType() {
         return meatType;
@@ -26,7 +26,8 @@ public class Meat extends Topping{
         meats.add(meat);
     }
 
-    public double calculateMeat() {
+    @Override
+    public double calculatePrice() {
         double total = 0;
         for(Meat meat : meats) {
             switch(super.getSandwichSize()) {
