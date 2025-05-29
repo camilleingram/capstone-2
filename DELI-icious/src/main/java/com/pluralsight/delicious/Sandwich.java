@@ -53,10 +53,16 @@ public class Sandwich {
             this.toppings.add(topping);
         }
 
+
         public Sandwich build() {
             return new Sandwich(bread, toppings, isToasted, sandwichSize);
         }
     }
 
+    public String toString() {
+        System.out.printf("Bread : %s" +
+                          "Toppings %s");
+
+    }
 
 }

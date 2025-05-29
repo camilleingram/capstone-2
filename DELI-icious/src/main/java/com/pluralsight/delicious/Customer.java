@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Customer {
     private String name = "";
-    private int orderNumber = 1;
+    private int customerId = 1;
     private List<Order> previousOrders;
 
     public Customer(String name) {
         this.name = name;
-        this.orderNumber = orderNumber++;
+        this.customerId = customerId++;
         this.previousOrders = new ArrayList<>();
     }
 
@@ -18,8 +18,8 @@ public class Customer {
         return name;
     }
 
-    public int getOrderNumber() {
-        return orderNumber;
+    public int getCustomerId() {
+        return customerId;
     }
 
     public List<Order> getPreviousOrders() {

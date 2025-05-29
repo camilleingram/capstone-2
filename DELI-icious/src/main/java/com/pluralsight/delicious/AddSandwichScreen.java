@@ -32,20 +32,18 @@ public class AddSandwichScreen {
         askIfToasted(scanner);
 
 //        adding meat to the sandwich
-        int meatIndex = askForMeat(scanner);
+        askForMeat(scanner);
 
 //        adding cheese to the sandwich
-        int cheeseIndex = askForCheese(scanner);
+        askForCheese(scanner);
 
 //        adding regular toppings to the sandwich
-        int regIndex = askForRegularTopping(scanner);
+        askForRegularTopping(scanner);
 
 //        adding sauce to the sandwich
-        int sauceIndex = askForSauce(scanner);
+        askForSauce(scanner);
 
-        Sandwich builtSandwich = sandwichBuilder.build();
-
-        return builtSandwich;
+        return sandwichBuilder.build();
 
 
     }
@@ -97,7 +95,7 @@ public class AddSandwichScreen {
                     System.out.printf("You asked for regular %s%n", sauceChoice);
                 }
 
-                sandwichBuilder.addTopping(addedSauce);
+                sandwichBuilder.addSauce(addedSauce);
                 addedSauce.addTopping(addedSauce);
 
             }

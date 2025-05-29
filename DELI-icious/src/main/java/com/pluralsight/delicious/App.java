@@ -7,5 +7,6 @@ public class App {
     public static void main(String[] args) {
         HomeScreen homeScreen = new HomeScreen();
         homeScreen.displayHomeScreen(scanner);
+        scanner.close();
     }
 }

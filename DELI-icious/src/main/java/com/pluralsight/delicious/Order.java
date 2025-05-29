@@ -12,8 +12,8 @@ public class Order implements Priceable {
     private List<Drink> drinks;
     private List<Chips> chipList;
 
-    public Order(int orderNumber) {
-        this.orderNumber = orderNumber;
+    public Order() {
+        this.orderNumber = orderNumber++;
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
         this.chipList = new ArrayList<>();
@@ -39,8 +39,23 @@ public class Order implements Priceable {
         return chipList;
     }
 
+    public void addSandwich(Sandwich sandwich) {
+        sandwiches.add(sandwich);
+    }
+
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
+
+    public void addChips(Chips chips) {
+        chipList.add(chips);
+    }
+
+
+
     @Override
     public double calculatePrice() {
-
+        double total = 0;
+        return total;
     }
 }
