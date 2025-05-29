@@ -17,7 +17,7 @@ public class AddSandwichScreen {
     private List<Topping> toppings = new ArrayList<>();
     private Sandwich.Builder sandwichBuilder = new Sandwich.Builder();
 
-    public void displaySandwichScreen() {
+    public Sandwich displayAndBuildSandwich() {
 
         //        setting the sandwich size
         sandwichBuilder.setSandwichSize(sandwichSize);
@@ -28,6 +28,8 @@ public class AddSandwichScreen {
 //        setting the bread for the sandwich
         sandwichBuilder.setBread(breadChoice);
         System.out.printf("You have selected %s bread%n", breadChoice);
+
+        askIfToasted(scanner);
 
 //        adding meat to the sandwich
         int meatIndex = askForMeat(scanner);
@@ -41,9 +43,23 @@ public class AddSandwichScreen {
 //        adding sauce to the sandwich
         int sauceIndex = askForSauce(scanner);
 
-        sandwichBuilder.build();
+        Sandwich builtSandwich = sandwichBuilder.build();
+
+        return builtSandwich;
 
 
+    }
+
+    public void askIfToasted(Scanner scanner) {
+        System.out.print("Would you like the sandwich toasted?");
+        String wantToasted = scanner.nextLine();
+
+        if(wantToasted.equalsIgnoreCase("Yes")) {
+            sandwichBuilder.setToasted(true);
+            System.out.println("You asked for a toasted sandwich");
+        } else if(wantToasted.equalsIgnoreCase("No")) {
+            sandwichBuilder.setToasted(false);
+        }
     }
 
     public int askForSauce(Scanner scanner) {

@@ -3,7 +3,7 @@ package com.pluralsight.delicious;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class PremiumTopping implements Topping{
+public abstract class PremiumTopping implements Topping, Priceable{
     private boolean isExtra;
     private int sandwichSize;
 
@@ -24,7 +24,7 @@ public abstract class PremiumTopping implements Topping{
         return sandwichSize;
     }
 
-
+    @Override
     public abstract double calculatePrice();
 
     @Override

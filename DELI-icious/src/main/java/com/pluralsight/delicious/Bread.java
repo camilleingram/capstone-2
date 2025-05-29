@@ -1,6 +1,6 @@
 package com.pluralsight.delicious;
 
-public class Bread {
+public class Bread implements Priceable{
     private String breadType = "";
     private double price = 0;
     private int sandwichSize = 0;
@@ -21,6 +21,11 @@ public class Bread {
     }
 
     public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public double calculatePrice() {
         switch(sandwichSize) {
             case 4:
                 price = 5.50;
