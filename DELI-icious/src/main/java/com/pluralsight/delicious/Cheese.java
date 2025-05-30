@@ -21,11 +21,13 @@ public class Cheese extends Topping {
                 if(isExtra()) {
                     price += 0.60;
                 }
+                break;
             case 12:
                 price = 2.25;
                 if(isExtra()) {
                     price += 0.90;
                 }
+                break;
         }
         return price;
     }
