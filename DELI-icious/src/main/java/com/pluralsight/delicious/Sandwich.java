@@ -125,6 +125,17 @@ public class Sandwich implements Priceable{
             this.toppings.add(topping);
         }
 
+        public void removeTopping(Topping topping) {
+            this.toppings.remove(topping);
+        }
+
+        public List<Topping> getToppings() {
+            return toppings;
+        }
+
+        public List<Topping> getSauces() {
+            return sauces;
+        }
 
         public Sandwich build() {
             return new Sandwich(bread, toppings, sauces, isToasted, sandwichSize);

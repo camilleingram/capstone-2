@@ -9,7 +9,6 @@ public class HomeScreen {
         int command = askIfOrdering(scanner);
         switch(command) {
             case 1:
-                System.out.println("Welcome!");
                 OrderScreen orderScreen = new OrderScreen();
                 orderScreen.displayOrderScreen();
                 break;
