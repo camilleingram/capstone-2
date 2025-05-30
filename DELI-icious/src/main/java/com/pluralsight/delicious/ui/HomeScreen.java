@@ -1,4 +1,4 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.ui;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,4 +1,6 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
+
+import com.pluralsight.delicious.Priceable;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

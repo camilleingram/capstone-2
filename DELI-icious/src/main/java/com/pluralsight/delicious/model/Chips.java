@@ -1,9 +1,8 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.pluralsight.delicious.Priceable;
 
-public class Chips implements Priceable{
+public class Chips implements Priceable {
     private String flavor = "";
     private double price = 0;
 

@@ -1,4 +1,4 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
 import java.util.ArrayList;
 import java.util.List;

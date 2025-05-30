@@ -1,4 +1,6 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.data;
+
+import com.pluralsight.delicious.model.*;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

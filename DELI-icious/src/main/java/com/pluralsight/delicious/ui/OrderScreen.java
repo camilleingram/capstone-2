@@ -1,6 +1,12 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.ui;
 
-import java.time.LocalDateTime;
+import com.pluralsight.delicious.model.Sandwich;
+import com.pluralsight.delicious.data.Checkout;
+import com.pluralsight.delicious.model.Chips;
+import com.pluralsight.delicious.model.Customer;
+import com.pluralsight.delicious.model.Drink;
+import com.pluralsight.delicious.model.Order;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

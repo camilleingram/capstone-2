@@ -1,6 +1,8 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
-public class Bread implements Priceable{
+import com.pluralsight.delicious.Priceable;
+
+public class Bread implements Priceable {
     private String breadType = "";
     private double price = 0;
     private int sandwichSize = 0;

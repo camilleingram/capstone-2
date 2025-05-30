@@ -1,6 +1,7 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.ui;
 
-import java.util.ArrayList;
+import com.pluralsight.delicious.model.*;
+
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;

@@ -1,33 +1,31 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
-public class Meat extends Topping {
-
+public class Cheese extends Topping {
     private double price = 0;
 
-    public Meat(boolean isExtra, int sandwichSize, String toppingName) {
+    public Cheese(boolean isExtra, int sandwichSize, String toppingName) {
         super(isExtra, sandwichSize, toppingName);
-        this.price = price;
     }
 
     @Override
     public double calculatePrice() {
         switch(super.getSandwichSize()) {
             case 4:
-                price = 1;
+                price = 0.75;
                 if(isExtra()) {
-                    price += 0.50;
+                    price += 0.30;
                 }
                 break;
             case 8:
-                price = 2;
+                price = 1.50;
                 if(isExtra()) {
-                    price += 1;
+                    price += 0.60;
                 }
                 break;
             case 12:
-                price = 3;
+                price = 2.25;
                 if(isExtra()) {
-                    price += 1.50;
+                    price += 0.90;
                 }
                 break;
         }

@@ -1,4 +1,4 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
 public class RegularTopping extends Topping {
 

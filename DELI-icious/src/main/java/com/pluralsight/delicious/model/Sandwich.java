@@ -1,9 +1,11 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
+
+import com.pluralsight.delicious.Priceable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich implements Priceable{
+public class Sandwich implements Priceable {
     private Bread bread;
     private List<Topping> toppings;
     private List<Topping> sauces;

@@ -1,6 +1,8 @@
-package com.pluralsight.delicious;
+package com.pluralsight.delicious.model;
 
-public abstract class Topping implements Priceable{
+import com.pluralsight.delicious.Priceable;
+
+public abstract class Topping implements Priceable {
     private boolean isExtra;
     private int sandwichSize;
     private String toppingName;
