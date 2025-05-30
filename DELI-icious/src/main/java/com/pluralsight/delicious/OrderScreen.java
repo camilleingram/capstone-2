@@ -34,9 +34,10 @@ public class OrderScreen {
                     orderType = addToOrder(scanner);
                     break;
                 case 4:
-                    Checkout checkout = new Checkout(order, customer, LocalDateTime.now());
+                    Checkout checkout = new Checkout(order, customer);
                     checkout.displayOrderDetails();
                     customer.addToPreviousOrders(order);
+                    checkout.writeOrderToFile(order);
                     orderType = 0;
                     break;
                 case 5:

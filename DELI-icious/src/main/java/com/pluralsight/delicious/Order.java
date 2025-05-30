@@ -1,5 +1,6 @@
 package com.pluralsight.delicious;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class Order implements Priceable {
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chipList;
+    private LocalDateTime orderDateTime;
 
     public Order() {
         this.orderNumber = orderNumber++;
@@ -18,6 +20,7 @@ public class Order implements Priceable {
         this.drinks = new ArrayList<>();
         this.chipList = new ArrayList<>();
         this.total = total;
+        this.orderDateTime = LocalDateTime.now();
     }
 
     public int getOrderNumber() {
@@ -49,6 +52,10 @@ public class Order implements Priceable {
         chipList.add(chips);
     }
 
+    public LocalDateTime getOrderDateTime() {
+        return orderDateTime;
+    }
+
 
 
     @Override
@@ -64,4 +71,6 @@ public class Order implements Priceable {
        }
         return total;
     }
+
+
 }
