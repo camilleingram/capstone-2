@@ -31,7 +31,7 @@ public class Checkout {
     }
 
     public void displayOrderDetails() {
-        System.out.printf("\nOrder for %s (ID: %d)%n", customer.getName(),customer.getCustomerId());
+        System.out.printf("\nOrder for %s (ID: %d) %n", customer.getName(),customer.getCustomerId());
         DateTimeFormatter formatOrderDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
         this.orderDateTime.format(formatOrderDateTime);
 //

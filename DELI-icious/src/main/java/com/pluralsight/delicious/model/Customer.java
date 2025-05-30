@@ -6,11 +6,12 @@ import java.util.List;
 public class Customer {
     private String name = "";
     private int customerId = 1;
+    private static int nextCustomerId;
     private List<Order> previousOrders;
 
     public Customer(String name) {
         this.name = name;
-        this.customerId = customerId++;
+        this.customerId = nextCustomerId++;
         this.previousOrders = new ArrayList<>();
     }
 

@@ -1,0 +1,24 @@
+Order for Camille (ID: 1)
+Date/Time: 2025-05-30 09:06 AM
+
+Sandwiches:
+	Size: 4-inch ($5.50)
+	Bread: Wrap
+	Toppings
+		Chicken ($1.00)
+		Swiss ($0.75)
+		Lettuce ($0.00)
+		Tomatoes ($0.00)
+		Cucumbers ($0.00)
+		Guacamole ($0.00)
+	Sauce
+		Ranch ($0.00)
+
+
+Chips:
+	BBQ   $1.50
+
+Drinks:
+	Medium Mt. Dew   $2.50
+
+Total: $11.25

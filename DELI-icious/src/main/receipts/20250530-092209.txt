@@ -1,0 +1,21 @@
+Order for Jailyn (ID: 0)
+Date/Time: 2025-05-30 09:22 AM
+
+Sandwiches:
+	Size: 12-inch ($8.50)
+	Bread: Wrap
+	Toppings
+		Extra Chicken ($4.50)
+		Extra Cheddar ($3.15)
+		Extra Lettuce ($0.00)
+	Sauce
+		Vinaigrette ($0.00)
+
+
+Chips:
+	BBQ   $1.50
+
+Drinks:
+	Small Sprite   $2.00
+
+Total: $19.65

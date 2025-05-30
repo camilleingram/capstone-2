@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Order implements Priceable {
 
-    private int orderNumber = 1;
     private double total = 0;
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
@@ -17,7 +16,6 @@ public class Order implements Priceable {
     private LocalDateTime orderDateTime;
 
     public Order() {
-        this.orderNumber = orderNumber++;
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
         this.chipList = new ArrayList<>();
@@ -25,9 +23,6 @@ public class Order implements Priceable {
         this.orderDateTime = LocalDateTime.now();
     }
 
-    public int getOrderNumber() {
-        return orderNumber;
-    }
 
 
     public List<Sandwich> getSandwiches() {

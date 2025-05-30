@@ -1,0 +1,21 @@
+Order for Cameron (ID: 1)
+Date/Time: 2025-05-30 09:16 AM
+
+Sandwiches:
+	Size: 8-inch ($7.00)
+	Bread: White
+	Toppings
+		Bacon ($2.00)
+		Cheddar ($1.50)
+		Lettuce ($0.00)
+		Tomatoes ($0.00)
+	Sauce
+		Ranch ($0.00)
+
+
+Chips:
+
+Drinks:
+	Large Orange Fanta   $3.00
+
+Total: $13.50

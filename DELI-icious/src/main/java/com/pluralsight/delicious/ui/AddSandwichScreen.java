@@ -47,14 +47,14 @@ public class AddSandwichScreen {
         } else {
             sandwichSize = askForSize(scanner);
             sandwichBuilder.setSandwichSize(sandwichSize);
-            System.out.printf("You have selected the %d-inch sandwich%n", sandwichSize);
+            System.out.printf("%nYou have selected the %d-inch sandwich%n", sandwichSize);
 
             int breadIndex = askForBread(scanner);
             String breadChoice = breadTypes[breadIndex - 1];
 
             Bread addedBread = new Bread(breadChoice, sandwichSize);
             sandwichBuilder.setBread(addedBread);
-            System.out.printf("You have selected %s bread%n", breadChoice);
+            System.out.printf("%nYou have selected %s bread%n", breadChoice);
 
             askIfToasted(scanner);
 
@@ -72,7 +72,7 @@ public class AddSandwichScreen {
 
     public void askForModifications(Scanner scanner) {
         System.out.println("\nWhat would you like to modify? ");
-        System.out.println("1. Add more meat\n2. Add more cheese\n3. Add toppings\n4.Remove toppings\n0. Done with changes\n");
+        System.out.println("1. Add more meat\n2. Add more cheese\n3. Add toppings\n4. Remove toppings\n0. Done with changes\n");
         System.out.print("Enter Option: ");
 
         int modChoice = 0;
@@ -261,11 +261,12 @@ public class AddSandwichScreen {
 
         if(wantToasted.equalsIgnoreCase("Yes")) {
             sandwichBuilder.setToasted(true);
-            System.out.println("You asked for a toasted sandwich");
+            System.out.println("\nYou asked for a toasted sandwich");
         } else if(wantToasted.equalsIgnoreCase("No")) {
             sandwichBuilder.setToasted(false);
+            System.out.println("\nYou asked for a non-toasted sandwich");
         } else {
-            System.out.println("Invalid input. Defaulting to not toasted.");
+            System.out.println("\nInvalid input. Defaulting to not toasted.");
             sandwichBuilder.setToasted(false);
         }
     }
@@ -278,7 +279,7 @@ public class AddSandwichScreen {
             for(String sauce : sauces) {
                 System.out.printf("%d. %s%n", sauceCounter++, sauce);
             }
-            System.out.println("0. Head to the main menu!");
+            System.out.println("0. Back to the main menu!");
             System.out.print("Enter Option: ");
             int sauceIndex = 0;
 
@@ -302,23 +303,23 @@ public class AddSandwichScreen {
 
 
             if(sauceIndex == 0) {
-                System.out.println("0. On to the next step!");
+                System.out.println("\nBack to the main menu!");
                 break;
             }
 
             String sauceChoice = sauces[sauceIndex - 1];
             RegularTopping addedSauce = new RegularTopping(false, sandwichSize, sauceChoice);
 
-            System.out.printf("\nWould you like extra %s? ", sauceChoice);
+            System.out.printf("%nWould you like extra %s? ", sauceChoice);
             String extraSauce = scanner.nextLine();
 
             if(extraSauce.equalsIgnoreCase("Yes")) {
                 addedSauce.setExtra(true);
-                System.out.printf("You asked for extra %s%n", sauceChoice);
+                System.out.printf("%nYou asked for extra %s%n", sauceChoice);
             } else if(extraSauce.equalsIgnoreCase("No")) {
-                System.out.printf("You asked for regular %s%n", sauceChoice);
+                System.out.printf("%nYou asked for regular %s%n", sauceChoice);
             }else {
-                System.out.printf("Invalid input. Defaulting to regular %s.", addedSauce.getToppingName());
+                System.out.printf("%nInvalid input. Defaulting to regular %s.%n", addedSauce.getToppingName());
                 addedSauce.setExtra(false);
             }
 
@@ -359,7 +360,7 @@ public class AddSandwichScreen {
             }
 
             if (regIndex == 0) {
-                System.out.println("0. On to the next step!");
+                System.out.println("\nOn to the next step!");
                 break;
             }
 
@@ -367,16 +368,16 @@ public class AddSandwichScreen {
 
             RegularTopping addedReg = new RegularTopping(false, sandwichSize, regChoice);
 
-            System.out.printf("\nWould you like extra %s? ", regChoice);
+            System.out.printf("%nWould you like extra %s? ", regChoice);
             String extraReg = scanner.nextLine();
 
             if (extraReg.equalsIgnoreCase("Yes")) {
                 addedReg.setExtra(true);
-                System.out.printf("You asked for extra %s%n", regChoice);
+                System.out.printf("%nYou asked for extra %s%n", regChoice);
             } else if (extraReg.equalsIgnoreCase("No")) {
-                System.out.printf("You asked for regular %s%n", regChoice);
+                System.out.printf("%nYou asked for regular %s%n", regChoice);
             }else {
-                System.out.printf("Invalid input. Defaulting to regular %s.", addedReg.getToppingName());
+                System.out.printf("%nInvalid input. Defaulting to regular %s.%n", addedReg.getToppingName());
                 addedReg.setExtra(false);
             }
 
@@ -416,7 +417,7 @@ public class AddSandwichScreen {
             }
 
             if(cheeseIndex == 0) {
-                System.out.println("On to the next step!");
+                System.out.println("\nOn to the next step!");
                 break;
             }
 
@@ -428,11 +429,11 @@ public class AddSandwichScreen {
             Cheese addedCheese = new Cheese(false, sandwichSize, cheeseChoice);
             if(extraCheese.equalsIgnoreCase("Yes")) {
                 addedCheese.setExtra(true);
-                System.out.printf("You asked for extra %s cheese%n", cheeseChoice);
+                System.out.printf("%nYou asked for extra %s cheese%n", cheeseChoice);
             } else if(extraCheese.equalsIgnoreCase("No")) {
-                System.out.printf("You asked for regular %s cheese%n", cheeseChoice);
+                System.out.printf("%nYou asked for regular %s cheese%n", cheeseChoice);
             }else {
-                System.out.printf("Invalid input. Defaulting to regular %s.", addedCheese.getToppingName());
+                System.out.printf("%nInvalid input. Defaulting to regular %s.%n", addedCheese.getToppingName());
                 addedCheese.setExtra(false);
             }
 
@@ -472,7 +473,7 @@ public class AddSandwichScreen {
             }
 
             if(meatIndex == 0) {
-                System.out.println("On to the next step!");
+                System.out.println("\nOn to the next step!");
                 break;
             }
 
@@ -484,11 +485,11 @@ public class AddSandwichScreen {
 
             if (extraMeat.equalsIgnoreCase("Yes")) {
                 addedMeat.setExtra(true);
-                System.out.printf("You asked for extra %s%n", meatChoice);
+                System.out.printf("%nYou asked for extra %s%n", meatChoice);
             } else if (extraMeat.equalsIgnoreCase("No")) {
-                System.out.printf("You asked for regular %s%n", meatChoice);
+                System.out.printf("%nYou asked for regular %s%n", meatChoice);
             }else {
-                System.out.printf("Invalid input. Defaulting to regular %s.", addedMeat.getToppingName());
+                System.out.printf("%nInvalid input. Defaulting to regular %s.%n", addedMeat.getToppingName());
                 addedMeat.setExtra(false);
             }
 
@@ -526,7 +527,7 @@ public class AddSandwichScreen {
         while (true) {
             System.out.println("\nWhat kind of bread would you like?");
             System.out.println("1. White\n 2. Wheat\n 3. Rye\n 4. Wrap");
-
+            System.out.print("Enter Option: ");
             try {
                 int bread = scanner.nextInt();
                 scanner.nextLine();
@@ -535,10 +536,12 @@ public class AddSandwichScreen {
                     return bread;
                 } else {
                     System.out.println("Please enter a number between 1 and 4.");
+                    System.out.print("Enter Option: ");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number, not letters.");
                 scanner.nextLine();
+                System.out.print("Enter Option: ");
             }
         }
     }

@@ -19,6 +19,7 @@ public class OrderScreen {
     private Order order = new Order();
 
     public void displayOrderScreen() {
+        HomeScreen homeScreen = new HomeScreen();
         String customerName = askForName(scanner);
         Customer customer = new Customer(customerName);
         System.out.printf("\nWelcome, %s! ", customer.getName());
@@ -43,13 +44,15 @@ public class OrderScreen {
                 case 4:
                     Checkout checkout = new Checkout(order, customer);
                     checkout.displayOrderDetails();
+                    System.out.println("\nThank you for ordering at DELI-cious! \nCome back soon!");
                     customer.addToPreviousOrders(order);
                     checkout.writeOrderToFile(order);
+                    homeScreen.displayHomeScreen(scanner);
                     orderType = 0;
                     break;
                 case 5:
                     System.out.println("Order cancelled");
-                    HomeScreen homeScreen = new HomeScreen();
+
                     homeScreen.displayHomeScreen(scanner);
                     break;
             }
@@ -92,12 +95,12 @@ public class OrderScreen {
                 }
             }
             if(chipIndex == 0) {
-                System.out.println("Back to the main menu!");
+                System.out.println("\nBack to the main menu!");
                 break;
             }
 
             String chipChoice = chipList[chipIndex -1];
-            System.out.printf("You asked for %s chips", chipChoice);
+            System.out.printf("%nYou asked for %s chips%n", chipChoice);
 
 
             Chips addedChips = new Chips(chipChoice);
@@ -136,7 +139,7 @@ public class OrderScreen {
             }
 
             if(sizeIndex == 0) {
-                System.out.println("Back to the main menu!");
+                System.out.println("\nBack to the main menu!");
                 break;
             }
 
@@ -170,7 +173,7 @@ public class OrderScreen {
             }
 
             String flavorChoice = drinkFlavors[drinkIndex -1];
-            System.out.printf("You asked for a %s %s%n", sizeChoice, flavorChoice);
+            System.out.printf("%nYou asked for a %s %s%n", sizeChoice, flavorChoice);
 
             Drink addedDrink = new Drink(sizeChoice, flavorChoice);
             order.addDrink(addedDrink);
