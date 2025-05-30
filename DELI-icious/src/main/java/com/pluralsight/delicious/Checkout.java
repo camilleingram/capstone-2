@@ -29,7 +29,7 @@ public class Checkout {
     }
 
     public void displayOrderDetails() {
-        System.out.printf("Order for %s (ID: %d)%n", customer.getName(),customer.getCustomerId());
+        System.out.printf("\nOrder for %s (ID: %d)%n", customer.getName(),customer.getCustomerId());
         DateTimeFormatter formatOrderDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
         this.orderDateTime.format(formatOrderDateTime);
 //
@@ -43,16 +43,16 @@ public class Checkout {
 
         System.out.println("Chips");
         for(Chips chips : chipList) {
-            System.out.printf("\t %s   $%.2f%n", chips.getFlavor(), chips.calculatePrice());
+            System.out.printf("\t %s ($%.2f)%n", chips.getFlavor(), chips.calculatePrice());
         }
 
         System.out.println("Drink");
         for(Drink drink : drinks) {
-            System.out.printf("\t %s %s   $%.2f%n", drink.getDrinkSize(), drink.getFlavor(), drink.calculatePrice());
+            System.out.printf("\t %s %s ($%.2f)%n", drink.getDrinkSize(), drink.getFlavor(), drink.calculatePrice());
         }
 
 
-        System.out.printf("Total       $%.2f%n", price);
+        System.out.printf("Total ($%.2f)%n", price);
 
     }
 

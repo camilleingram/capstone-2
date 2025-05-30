@@ -57,7 +57,7 @@ public class Sandwich implements Priceable{
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(String.format("\tSize: %d-inch   $%.2f\n", sandwichSize, bread.getPrice()));
+        stringBuilder.append(String.format("\tSize: %d-inch ($%.2f)\n", sandwichSize, bread.getPrice()));
         stringBuilder.append(String.format("\tBread: %s\n", bread.getBreadType()));
 
         stringBuilder.append("\tToppings\n");
@@ -65,21 +65,22 @@ public class Sandwich implements Priceable{
         for (Topping topping : toppings) {
             if (topping instanceof Meat meat) {
                 if (meat.isExtra()) {
-                    stringBuilder.append(String.format("\t\tExtra %s   $%.2f\n", meat.getToppingName(), meat.calculatePrice()));
+                    stringBuilder.append(String.format("\t\tExtra %s ($%.2f)\n", meat.getToppingName(), meat.calculatePrice()));
                 } else {
-                    stringBuilder.append(String.format("\t\t%s   $%.2f\n", meat.getToppingName(), meat.calculatePrice()));
+                    stringBuilder.append(String.format("\t\t%s ($%.2f)\n", meat.getToppingName(), meat.calculatePrice()));
                 }
             } else if (topping instanceof Cheese cheese) {
                 if (cheese.isExtra()) {
-                    stringBuilder.append(String.format("\t\tExtra %s   $%.2f\n", cheese.getToppingName(), cheese.calculatePrice()));
+                    stringBuilder.append(String.format("\t\tExtra %s ($%.2f)\n", cheese.getToppingName(),
+                                                       cheese.calculatePrice()));
                 } else {
-                    stringBuilder.append(String.format("\t\t%s   $%.2f\n", cheese.getToppingName(), cheese.calculatePrice()));
+                    stringBuilder.append(String.format("\t\t%s ($%.2f)\n", cheese.getToppingName(), cheese.calculatePrice()));
                 }
             } else if (topping instanceof RegularTopping regTopping) {
                 if (regTopping.isExtra()) {
-                    stringBuilder.append(String.format("\t\tExtra %s\n", regTopping.getToppingName()));
+                    stringBuilder.append(String.format("\t\tExtra %s ($%.2f)\n", regTopping.getToppingName(), regTopping.calculatePrice()));
                 } else {
-                    stringBuilder.append(String.format("\t\t%s\n", regTopping.getToppingName()));
+                    stringBuilder.append(String.format("\t\t%s ($%.2f)\n", regTopping.getToppingName(), regTopping.calculatePrice()));
                 }
             }
         }
@@ -88,9 +89,9 @@ public class Sandwich implements Priceable{
         for (Topping sauce : sauces) {
 
             if (sauce.isExtra()) {
-                stringBuilder.append(String.format("\t\tExtra %s\n", sauce.getToppingName()));
+                stringBuilder.append(String.format("\t\tExtra %s ($%.2f)\n", sauce.getToppingName(), sauce.calculatePrice()));
             } else {
-                stringBuilder.append(String.format("\t\t%s\n", sauce.getToppingName()));
+                stringBuilder.append(String.format("\t\t%s ($%.2f)\n", sauce.getToppingName(), sauce.calculatePrice()));
             }
         }
 

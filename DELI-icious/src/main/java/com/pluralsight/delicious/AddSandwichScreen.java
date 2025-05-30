@@ -188,7 +188,7 @@ public class AddSandwichScreen {
             RegularTopping addedSauce = new RegularTopping(false, 8, "Ranch");
             sandwichBuilder.addSauce(addedSauce);
             System.out.println(
-                    "Your BLT sandwich has: White bread (toasted), Bacon, Cheddar Cheese, Lettuce, Tomatoes, Ranch sauce");
+                    "\nYour BLT sandwich has: White bread (toasted), Bacon, Cheddar Cheese, Lettuce, Tomatoes, Ranch sauce");
 
             askForModifications(scanner);
 
@@ -219,11 +219,12 @@ public class AddSandwichScreen {
             RegularTopping addedSauce = new RegularTopping(false, 4, "Ranch");
             sandwichBuilder.addSauce(addedSauce);
 
-            System.out.println("Your Garden Wrap has: Wrap bread (not toasted), Chicken, Swiss Cheese, Lettuce, Tomatoes, Cucumbers, Guacamole, Ranch sauce");
+            System.out.println("\nYour Garden Wrap has: Wrap bread (not toasted), Chicken, Swiss Cheese, Lettuce, Tomatoes, " +
+                               "Cucumbers, Guacamole, Ranch sauce");
 
             askForModifications(scanner);
 
-        } else if (signatureChoice == 3) {
+        } else {
             sandwichBuilder.setSandwichSize(12);
 
             Bread bread = new Bread("White", 12);
@@ -245,7 +246,8 @@ public class AddSandwichScreen {
             RegularTopping addedSauce = new RegularTopping(false, 12, "Vinaigrette");
             sandwichBuilder.addSauce(addedSauce);
 
-            System.out.println("Your Steak House sandwich has: White bread (toasted), Steak, Cheddar Cheese, Mushrooms, Onions, Vinaigrette sauce");
+            System.out.println("\nYour Steak House sandwich has: White bread (toasted), Steak, Cheddar Cheese, Mushrooms, " +
+                               "Onions, Vinaigrette sauce");
 
             askForModifications(scanner);
         }
@@ -253,13 +255,16 @@ public class AddSandwichScreen {
 
 
     public void askIfToasted(Scanner scanner) {
-        System.out.print("\nWould you like the sandwich toasted?");
+        System.out.print("\nWould you like the sandwich toasted? ");
         String wantToasted = scanner.nextLine();
 
         if(wantToasted.equalsIgnoreCase("Yes")) {
             sandwichBuilder.setToasted(true);
             System.out.println("You asked for a toasted sandwich");
         } else if(wantToasted.equalsIgnoreCase("No")) {
+            sandwichBuilder.setToasted(false);
+        } else {
+            System.out.println("Invalid input. Defaulting to not toasted.");
             sandwichBuilder.setToasted(false);
         }
     }
@@ -303,7 +308,7 @@ public class AddSandwichScreen {
             String sauceChoice = sauces[sauceIndex - 1];
             RegularTopping addedSauce = new RegularTopping(false, sandwichSize, sauceChoice);
 
-            System.out.printf("Would you like extra %s? ", sauceChoice);
+            System.out.printf("\nWould you like extra %s? ", sauceChoice);
             String extraSauce = scanner.nextLine();
 
             if(extraSauce.equalsIgnoreCase("Yes")) {
@@ -311,6 +316,9 @@ public class AddSandwichScreen {
                 System.out.printf("You asked for extra %s%n", sauceChoice);
             } else if(extraSauce.equalsIgnoreCase("No")) {
                 System.out.printf("You asked for regular %s%n", sauceChoice);
+            }else {
+                System.out.printf("Invalid input. Defaulting to regular %s.", addedSauce.getToppingName());
+                addedSauce.setExtra(false);
             }
 
             sandwichBuilder.addSauce(addedSauce);
@@ -358,7 +366,7 @@ public class AddSandwichScreen {
 
             RegularTopping addedReg = new RegularTopping(false, sandwichSize, regChoice);
 
-            System.out.printf("Would you like extra %s? ", regChoice);
+            System.out.printf("\nWould you like extra %s? ", regChoice);
             String extraReg = scanner.nextLine();
 
             if (extraReg.equalsIgnoreCase("Yes")) {
@@ -366,6 +374,9 @@ public class AddSandwichScreen {
                 System.out.printf("You asked for extra %s%n", regChoice);
             } else if (extraReg.equalsIgnoreCase("No")) {
                 System.out.printf("You asked for regular %s%n", regChoice);
+            }else {
+                System.out.printf("Invalid input. Defaulting to regular %s.", addedReg.getToppingName());
+                addedReg.setExtra(false);
             }
 
             sandwichBuilder.addTopping(addedReg);
@@ -382,6 +393,7 @@ public class AddSandwichScreen {
                 System.out.printf("%d. %s%n", cheeseCounter++, cheese);
             }
             System.out.println("0. On to the next step!");
+            System.out.print("Enter Option: ");
 
             int cheeseIndex = 0;
             while (true) {
@@ -393,15 +405,17 @@ public class AddSandwichScreen {
                         break;
                     } else {
                         System.out.println("Please enter a number between 0 and " + cheeseTypes.length);
+                        System.out.print("Enter Option: ");
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Please enter a number, not letters.");
                     scanner.nextLine();
+                    System.out.print("Enter Option: ");
                 }
             }
 
             if(cheeseIndex == 0) {
-                System.out.println("0. On to the next step!");
+                System.out.println("On to the next step!");
                 break;
             }
 
@@ -416,6 +430,9 @@ public class AddSandwichScreen {
                 System.out.printf("You asked for extra %s cheese%n", cheeseChoice);
             } else if(extraCheese.equalsIgnoreCase("No")) {
                 System.out.printf("You asked for regular %s cheese%n", cheeseChoice);
+            }else {
+                System.out.printf("Invalid input. Defaulting to regular %s.", addedCheese.getToppingName());
+                addedCheese.setExtra(false);
             }
 
             sandwichBuilder.addTopping(addedCheese);
@@ -432,6 +449,7 @@ public class AddSandwichScreen {
                 System.out.printf("%d. %s%n", toppingCounter++, meat);
             }
             System.out.println("0. On to the next step!");
+            System.out.print("Enter Option: ");
 
             int meatIndex = 0;
             while (true) {
@@ -443,22 +461,24 @@ public class AddSandwichScreen {
                         break;
                     } else {
                         System.out.println("Please enter a number between 0 and " + meatTypes.length);
+                        System.out.print("Enter Option: ");
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Please enter a number, not letters.");
                     scanner.nextLine();
+                    System.out.print("Enter Option: ");
                 }
             }
 
             if(meatIndex == 0) {
-                System.out.println("0. On to the next step!");
+                System.out.println("On to the next step!");
                 break;
             }
 
             String meatChoice = meatTypes[meatIndex - 1];
             Meat addedMeat = new Meat(false, sandwichSize, meatChoice);
 
-            System.out.printf("\nWould you like extra %s%n", meatChoice);
+            System.out.printf("\nWould you like extra %s? ", meatChoice);
             String extraMeat = scanner.nextLine();
 
             if (extraMeat.equalsIgnoreCase("Yes")) {
@@ -466,6 +486,9 @@ public class AddSandwichScreen {
                 System.out.printf("You asked for extra %s%n", meatChoice);
             } else if (extraMeat.equalsIgnoreCase("No")) {
                 System.out.printf("You asked for regular %s%n", meatChoice);
+            }else {
+                System.out.printf("Invalid input. Defaulting to regular %s.", addedMeat.getToppingName());
+                addedMeat.setExtra(false);
             }
 
             sandwichBuilder.addTopping(addedMeat);
@@ -477,6 +500,7 @@ public class AddSandwichScreen {
         while (true) {
             System.out.println("\nWhat size sandwich would you like?");
             System.out.println("(4) 4-inch Sandwich\n(8) 8-inch sandwich\n(12) 12-inch sandwich");
+            System.out.print("Enter Option: ");
 
             try {
                 int sandwichSize = scanner.nextInt();
@@ -486,10 +510,12 @@ public class AddSandwichScreen {
                     return sandwichSize;
                 } else {
                     System.out.println("Please enter 4, 8, or 12 only.");
+                    System.out.print("Enter Option: ");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number, not letters.");
                 scanner.nextLine();
+                System.out.print("Enter Option: ");
             }
         }
     }

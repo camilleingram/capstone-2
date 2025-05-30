@@ -107,8 +107,8 @@ public class OrderScreen {
             for(String size : drinkSizes) {
                 System.out.printf("%d. %s%n", sizeCounter++, size);
             }
-            System.out.println("0. Move onto chips");
-            System.out.println();
+            System.out.println("0. Back to main menu!");
+            System.out.print("Enter Option: ");
             int sizeIndex = 0;
 
             while (true) {
@@ -120,10 +120,12 @@ public class OrderScreen {
                         break;
                     } else {
                         System.out.println("Please enter a number between 0 and " + drinkSizes.length);
+                        System.out.print("Enter Option: ");
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Please enter a number, not letters.");
                     scanner.nextLine();
+                    System.out.print("Enter Option: ");
                 }
             }
 
@@ -185,7 +187,7 @@ public class OrderScreen {
 
     public int addToOrder(Scanner scanner) {
         while (true) {
-            System.out.println("What would you like to add to your order? ");
+            System.out.println("\nWhat would you like to add to your order? ");
             System.out.println("1. Add a sandwich\n2. Add a drink\n3. Add a bag of chips \n4. Checkout please\n5. I want to cancel my order");
             System.out.print("Enter Option: ");
 
@@ -197,12 +199,11 @@ public class OrderScreen {
                     return order;
                 } else {
                     System.out.println("Please enter a number between 1 and 5.");
-                    System.out.print("Enter Option: ");
+
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number, not letters.");
                 scanner.nextLine();
-                System.out.print("Enter Option: ");
             }
         }
     }
