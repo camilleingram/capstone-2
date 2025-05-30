@@ -64,24 +64,24 @@ Dynamic pricing based on sandwich size and toppings:
 1. **Start Application**: Run the main App class
 2. **Place Order**: Choose to place an order from the welcome screen
 3. **Enter Name**: Provide customer name for order tracking
-   <img width="459" alt="Screenshot 2025-05-30 at 8 28 33 AM" src="https://github.com/user-attachments/assets/ef7a588a-7a14-404a-8b8f-586ab18f47ed" />
-   <img width="459" alt="Screenshot 2025-05-30 at 8 28 56 AM" src="https://github.com/user-attachments/assets/f7318a89-495d-4502-86ef-88dcf32a693e" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 28 33 AM" src="https://github.com/user-attachments/assets/ef7a588a-7a14-404a-8b8f-586ab18f47ed" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 28 56 AM" src="https://github.com/user-attachments/assets/f7318a89-495d-4502-86ef-88dcf32a693e" />
 6. **Build Order**: Add sandwiches, drinks, and chips as desired
-7. <img width="459" alt="Screenshot 2025-05-30 at 8 29 20 AM" src="https://github.com/user-attachments/assets/8d8b3b1e-111a-4233-a78d-37621a9dbca9" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 29 20 AM" src="https://github.com/user-attachments/assets/8d8b3b1e-111a-4233-a78d-37621a9dbca9" />
 8. **Customize Sandwiches**: Choose size, bread, toppings, and modifications
-   <img width="459" alt="Screenshot 2025-05-30 at 8 29 46 AM" src="https://github.com/user-attachments/assets/97ac6593-1eb3-4d72-ab11-86655f85e5a9" />
-   <img width="459" alt="Screenshot 2025-05-30 at 8 30 08 AM" src="https://github.com/user-attachments/assets/0c6a287b-a5db-4986-b48e-b3f045175d82" />
-   <img width="459" alt="Screenshot 2025-05-30 at 8 30 34 AM" src="https://github.com/user-attachments/assets/900a4a3c-411a-4a00-9abd-464383e76c63" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 28 51 AM" src="https://github.com/user-attachments/assets/06c4eff1-be83-4d79-8d61-329cd236c99a" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 29 14 AM" src="https://github.com/user-attachments/assets/fa1502f8-4df9-4dbc-a22f-56bfb9b1a78f" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 35 00 AM" src="https://github.com/user-attachments/assets/ce26104b-e515-464a-9158-db00c8b3c9f0" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 35 31 AM" src="https://github.com/user-attachments/assets/47493fe2-4c74-44db-88e0-e9db3d406bb4" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 36 04 AM" src="https://github.com/user-attachments/assets/5d610fe7-ebf5-4b41-9d73-a84e0edfac9d" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 36 34 AM" src="https://github.com/user-attachments/assets/0e02c6da-8d1f-4920-979c-6e184dc18384" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 36 54 AM" src="https://github.com/user-attachments/assets/4dc90067-ded2-44f6-a364-8df303de1579" />
-   <img width="459" alt="Screenshot 2025-05-30 at 9 37 50 AM" src="https://github.com/user-attachments/assets/f9d59d96-ae1a-4565-b456-e5803463ae7c" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 29 46 AM" src="https://github.com/user-attachments/assets/97ac6593-1eb3-4d72-ab11-86655f85e5a9" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 30 08 AM" src="https://github.com/user-attachments/assets/0c6a287b-a5db-4986-b48e-b3f045175d82" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 30 34 AM" src="https://github.com/user-attachments/assets/900a4a3c-411a-4a00-9abd-464383e76c63" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 28 51 AM" src="https://github.com/user-attachments/assets/06c4eff1-be83-4d79-8d61-329cd236c99a" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 29 14 AM" src="https://github.com/user-attachments/assets/fa1502f8-4df9-4dbc-a22f-56bfb9b1a78f" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 35 00 AM" src="https://github.com/user-attachments/assets/ce26104b-e515-464a-9158-db00c8b3c9f0" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 35 31 AM" src="https://github.com/user-attachments/assets/47493fe2-4c74-44db-88e0-e9db3d406bb4" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 36 04 AM" src="https://github.com/user-attachments/assets/5d610fe7-ebf5-4b41-9d73-a84e0edfac9d" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 36 34 AM" src="https://github.com/user-attachments/assets/0e02c6da-8d1f-4920-979c-6e184dc18384" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 36 54 AM" src="https://github.com/user-attachments/assets/4dc90067-ded2-44f6-a364-8df303de1579" />
+<img width="459" alt="Screenshot 2025-05-30 at 9 37 50 AM" src="https://github.com/user-attachments/assets/f9d59d96-ae1a-4565-b456-e5803463ae7c" />
 10. **Checkout**: Review order details and complete purchase
-    <img width="459" alt="Screenshot 2025-05-30 at 8 33 36 AM" src="https://github.com/user-attachments/assets/7aa0fcc8-2cbe-4526-a86c-cacd2864660b" />
+<img width="459" alt="Screenshot 2025-05-30 at 8 33 36 AM" src="https://github.com/user-attachments/assets/7aa0fcc8-2cbe-4526-a86c-cacd2864660b" />
 12. **Receipt**: Receive printed receipt and saved file copy
 ## Interesting Implementation Details
 
