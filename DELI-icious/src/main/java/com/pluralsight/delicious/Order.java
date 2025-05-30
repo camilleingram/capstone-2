@@ -7,7 +7,7 @@ import java.util.List;
 public class Order implements Priceable {
 
     private int orderNumber = 1;
-    private int total = 0;
+    private double total = 0;
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chipList;
@@ -17,15 +17,13 @@ public class Order implements Priceable {
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
         this.chipList = new ArrayList<>();
+        this.total = total;
     }
 
     public int getOrderNumber() {
         return orderNumber;
     }
 
-    public int getTotal() {
-        return total;
-    }
 
     public List<Sandwich> getSandwiches() {
         return sandwiches;
@@ -55,7 +53,15 @@ public class Order implements Priceable {
 
     @Override
     public double calculatePrice() {
-        double total = 0;
+       for (Sandwich sandwich : sandwiches) {
+           total += sandwich.calculatePrice();
+       }
+       for(Chips chips : chipList) {
+           total += chips.calculatePrice();
+       }
+       for(Drink drink : drinks) {
+           total += drink.calculatePrice();
+       }
         return total;
     }
 }

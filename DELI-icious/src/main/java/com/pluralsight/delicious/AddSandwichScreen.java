@@ -8,7 +8,7 @@ import static com.pluralsight.delicious.App.scanner;
 
 public class AddSandwichScreen {
     private String[] breadTypes = {"White", "Wheat", "Rye", "Wrap"};
-    private String[] meatTypes = {"Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Chicken"};
+    private String[] meatTypes = {"Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"};
     private String[] cheeseTypes = {"American", "Provolone", "Cheddar", "Swiss"};
     private String[] regularToppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"};
     private String[] sauces = {"Mayo", "Ranch", "Thousand Island", "Vinaigrette"};
@@ -19,6 +19,16 @@ public class AddSandwichScreen {
 
     public Sandwich displayAndBuildSandwich() {
 
+        while(true) {
+            System.out.println("What kind of sandwich would you like?");
+            System.out.println("1. Signature sandwich\n2. Create-Your-Own\n");
+            System.out.print("Enter Option: ");
+            int sandwichChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            if(sandwichChoice == 1)
+        }
+
         //        setting the sandwich size
         sandwichBuilder.setSandwichSize(sandwichSize);
         System.out.printf("You have selected the %d-inch sandwich%n", sandwichSize);
@@ -26,7 +36,8 @@ public class AddSandwichScreen {
         int breadIndex = askForBread(scanner);
         String breadChoice = breadTypes[breadIndex - 1];
 //        setting the bread for the sandwich
-        sandwichBuilder.setBread(breadChoice);
+        Bread addedBread = new Bread(breadChoice, sandwichSize);
+        sandwichBuilder.setBread(addedBread);
         System.out.printf("You have selected %s bread%n", breadChoice);
 
         askIfToasted(scanner);
@@ -60,190 +71,148 @@ public class AddSandwichScreen {
         }
     }
 
-    public int askForSauce(Scanner scanner) {
-        System.out.println("Would you like any sauce on your sandwich");
-        String wantSauce = scanner.nextLine();
-        int sauceIndex = 1;
+    public void askForSauce(Scanner scanner) {
 
-        if(wantSauce.equalsIgnoreCase("Yes")) {
-
-            while(true) {
-                System.out.println("What sauce would you like? ");
-                int sauceCounter = 1;
-                for(String sauce : sauces) {
-                    System.out.printf("%d. %s", sauceCounter, sauce);
-                }
-                System.out.println("0. Move on to the sides");
-                sauceIndex = scanner.nextInt();
-                scanner.nextLine();
-
-                if(sauceIndex == 0) {
-                    System.out.println("Ok let's move onto the sides!");
-                    break;
-                }
-
-                String sauceChoice = sauces[sauceIndex - 1];
-                Sauce addedSauce = new Sauce(false, sauceChoice, sandwichSize);
-
-                System.out.printf("Would you like extra %s? ", sauceChoice);
-                String extraSauce = scanner.nextLine();
-
-                if(extraSauce.equalsIgnoreCase("Yes")) {
-                    addedSauce.setExtra(true);
-                    System.out.printf("You asked for extra %s%n", sauceChoice);
-                } else if(extraSauce.equalsIgnoreCase("No")) {
-                    System.out.printf("You asked for regular %s%n", sauceChoice);
-                }
-
-                sandwichBuilder.addSauce(addedSauce);
-                addedSauce.addTopping(addedSauce);
-
+        while(true) {
+            System.out.println("What sauce would you like? ");
+            int sauceCounter = 1;
+            for(String sauce : sauces) {
+                System.out.printf("%d. %s%n", sauceCounter++, sauce);
             }
+            System.out.println("0. Back to main menu");
+            int sauceIndex = scanner.nextInt();
+            scanner.nextLine();
+
+            if(sauceIndex == 0) {
+                System.out.println("Ok let's go back to main menu");
+                break;
+            }
+
+            String sauceChoice = sauces[sauceIndex - 1];
+            RegularTopping addedSauce = new RegularTopping(false, sandwichSize, sauceChoice);
+
+            System.out.printf("Would you like extra %s? ", sauceChoice);
+            String extraSauce = scanner.nextLine();
+
+            if(extraSauce.equalsIgnoreCase("Yes")) {
+                addedSauce.setExtra(true);
+                System.out.printf("You asked for extra %s%n", sauceChoice);
+            } else if(extraSauce.equalsIgnoreCase("No")) {
+                System.out.printf("You asked for regular %s%n", sauceChoice);
+            }
+
+            sandwichBuilder.addSauce(addedSauce);
+
         }
-        return sauceIndex;
+
     }
 
-    public int askForRegularTopping(Scanner scanner) {
-        System.out.print("Would like any of the regular toppings? ");
-        String wantRegToppings = scanner.nextLine();
-        int regIndex = 1;
+    public void askForRegularTopping(Scanner scanner) {
 
-        if(wantRegToppings.equalsIgnoreCase("Yes")) {
-            while(true) {
-                System.out.println("What topping would you like? ");
-                int regToppingCounter = 1;
-                for(String regTopping : regularToppings) {
-                    System.out.printf("%d. %s ", regToppingCounter++, regTopping);
-                }
-                System.out.println("0. Move onto sauces");
-                regIndex = scanner.nextInt();
-                scanner.nextLine();
+        while (true) {
+            System.out.println("What topping would you like? ");
+            int regToppingCounter = 1;
+            for (String regTopping : regularToppings) {
+                System.out.printf("%d. %s%n", regToppingCounter++, regTopping);
+            }
+            System.out.println("0. Move onto sauces");
+            int regIndex = scanner.nextInt();
+            scanner.nextLine();
 
-                if(regIndex == 0) {
-                    System.out.println("Ok, let's move onto sauces");
-                    break;
-                }
-
-                String regChoice = regularToppings[regIndex - 1];
-
-                RegularTopping addedReg = new RegularTopping(false,regChoice, sandwichSize);
-
-                System.out.printf("Would you like extra %s? ", regChoice);
-                String extraReg = scanner.nextLine();
-
-                if(extraReg.equalsIgnoreCase("Yes")) {
-                    addedReg.setExtra(true);
-                    System.out.printf("You asked for extra %s%n", regChoice);
-                } else if(extraReg.equalsIgnoreCase("No")) {
-                    System.out.printf("You asked for regular %s%n", regChoice);
-                }
-
-                sandwichBuilder.addTopping(addedReg);
-                addedReg.addTopping(addedReg);
+            if (regIndex == 0) {
+                System.out.println("Ok, let's move onto sauces");
+                break;
             }
 
-        } else if(wantRegToppings.equalsIgnoreCase("No")) {
-            System.out.println("Ok let's move onto sauces!");
+            String regChoice = regularToppings[regIndex - 1];
+
+            RegularTopping addedReg = new RegularTopping(false, sandwichSize, regChoice);
+
+            System.out.printf("Would you like extra %s? ", regChoice);
+            String extraReg = scanner.nextLine();
+
+            if (extraReg.equalsIgnoreCase("Yes")) {
+                addedReg.setExtra(true);
+                System.out.printf("You asked for extra %s%n", regChoice);
+            } else if (extraReg.equalsIgnoreCase("No")) {
+                System.out.printf("You asked for regular %s%n", regChoice);
+            }
+
+            sandwichBuilder.addTopping(addedReg);
+
         }
-        return regIndex;
     }
 
-    public int askForCheese(Scanner scanner) {
-        System.out.print("Would you like cheese on your sandwich? ");
-        String wantCheese = scanner.nextLine();
-        int cheeseIndex = 1;
+    public void askForCheese(Scanner scanner) {
 
-        if(wantCheese.equalsIgnoreCase("Yes")) {
+        while(true) {
+            System.out.println("What cheese would you like? ");
+            int cheeseCounter = 1;
+            for(String cheese : cheeseTypes) {
+                System.out.printf("%d. %s%n", cheeseCounter++, cheese);
+            }
+            System.out.println("0. Move onto regular toppings");
 
-            while(true) {
-                System.out.println("What cheese would you like? ");
-                int cheeseCounter = 1;
-                for(String cheese : cheeseTypes) {
-                    System.out.printf("%d. %s ", cheeseCounter++, cheese);
-                }
-                System.out.println("0. Move onto regular toppings");
+            int cheeseIndex = scanner.nextInt();
+            scanner.nextLine();
 
-                cheeseIndex = scanner.nextInt();
-                scanner.nextLine();
-
-                if(cheeseIndex == 0) {
-                    System.out.println("Ok let's move on to regular toppings!");
-                    break;
-                }
-
-                String cheeseChoice = cheeseTypes[cheeseIndex - 1];
-                Cheese addedCheese = new Cheese(false, sandwichSize, cheeseChoice);
-
-                System.out.printf("Would you like extra %s cheese? ", cheeseChoice);
-                String extraCheese = scanner.nextLine();
-
-
-                if(extraCheese.equalsIgnoreCase("Yes")) {
-                    addedCheese.setExtra(true);
-                    System.out.printf("You asked for extra %s cheese%n", cheeseChoice);
-                } else if(extraCheese.equalsIgnoreCase("No")) {
-                    System.out.printf("You asked for regular %s cheese%n", cheeseChoice);
-                }
-
-                sandwichBuilder.addTopping(addedCheese);
-                addedCheese.addTopping(addedCheese);
+            if(cheeseIndex == 0) {
+                System.out.println("Ok let's move on to regular toppings!");
+                break;
             }
 
-        } else if(wantCheese.equalsIgnoreCase("No")){
-            System.out.println("Ok let's move to the regular toppings!");
-        }
+            String cheeseChoice = cheeseTypes[cheeseIndex - 1];
 
-        return cheeseIndex;
+            System.out.printf("Would you like extra %s cheese? ", cheeseChoice);
+            String extraCheese = scanner.nextLine();
+
+            Cheese addedCheese = new Cheese(false, sandwichSize, cheeseChoice);
+            if(extraCheese.equalsIgnoreCase("Yes")) {
+                addedCheese.setExtra(true);
+                System.out.printf("You asked for extra %s cheese%n", cheeseChoice);
+            } else if(extraCheese.equalsIgnoreCase("No")) {
+                System.out.printf("You asked for regular %s cheese%n", cheeseChoice);
+            }
+
+            sandwichBuilder.addTopping(addedCheese);
+        }
     }
 
-    public int askForMeat(Scanner scanner) {
-        System.out.print("Would you like meat on your sandwich? ");
-        String wantMeat = scanner.nextLine();
-        int meatIndex = 1;
-        if (wantMeat.equalsIgnoreCase("Yes")) {
+    public void askForMeat(Scanner scanner) {
 
-            while (true) {
+        while (true) {
 
-                System.out.println("What meat would you like? ");
-                int toppingCounter = 1;
-                for (String meat : meatTypes) {
-                    System.out.printf("%d. %s ", toppingCounter++, meat);
-                }
-                System.out.println("0. Move onto cheese");
+            System.out.println("What meat would you like? ");
+            int toppingCounter = 1;
+            for (String meat : meatTypes) {
+                System.out.printf("%d. %s%n", toppingCounter++, meat);
+            }
+            System.out.println("0. Move onto cheese");
 
-                meatIndex = scanner.nextInt();
-                scanner.nextLine();
+            int meatIndex = scanner.nextInt();
+            scanner.nextLine();
 
-                if(meatIndex == 0) {
-                    System.out.println("Ok, let's move onto cheese!");
-                    break;
-                }
-
-                String meatChoice = meatTypes[meatIndex - 1];
-                Meat addedMeat = new Meat(false, sandwichSize, meatChoice);
-
-                System.out.printf("Would you like extra %s%n", meatChoice);
-                String extraMeat = scanner.nextLine();
-
-                if (extraMeat.equalsIgnoreCase("Yes")) {
-                    addedMeat.setExtra(true);
-                    System.out.printf("You asked for extra %s%n", meatChoice);
-                } else if (extraMeat.equalsIgnoreCase("No")) {
-                    System.out.printf("You asked for regular %s%n", meatChoice);
-                }
-
-                sandwichBuilder.addTopping(addedMeat);
-                addedMeat.addTopping(addedMeat);
-
-
+            if(meatIndex == 0) {
+                System.out.println("Ok, let's move onto cheese!");
+                break;
             }
 
-        }else if(wantMeat.equalsIgnoreCase("No")) {
-            System.out.println("Ok let's move onto cheese!");
+            String meatChoice = meatTypes[meatIndex - 1];
+            Meat addedMeat = new Meat(false, sandwichSize, meatChoice);
+
+            System.out.printf("Would you like extra %s%n", meatChoice);
+            String extraMeat = scanner.nextLine();
+
+            if (extraMeat.equalsIgnoreCase("Yes")) {
+                addedMeat.setExtra(true);
+                System.out.printf("You asked for extra %s%n", meatChoice);
+            } else if (extraMeat.equalsIgnoreCase("No")) {
+                System.out.printf("You asked for regular %s%n", meatChoice);
+            }
+
+            sandwichBuilder.addTopping(addedMeat);
+
         }
-
-
-        return meatIndex;
     }
 
     public static int askForSize(Scanner scanner) {

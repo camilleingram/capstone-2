@@ -1,54 +1,32 @@
 package com.pluralsight.delicious;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Cheese extends Topping {
+    private double price = 0;
 
-public class Cheese extends PremiumTopping{
-
-    private String cheeseType = "";
-    private List<Topping> cheeses = new ArrayList<>();
-
-    public Cheese(boolean isExtra, int sandwichSize, String cheeseType) {
-        super(isExtra, sandwichSize);
-        this.cheeseType = cheeseType;
-    }
-
-    public String getCheeseType() {
-        return cheeseType;
-    }
-
-    public List<Topping> getCheeses() {
-        return cheeses;
-    }
-
-    @Override
-    public void addTopping(Topping cheese) {
-        cheeses.add((Topping) cheese);
+    public Cheese(boolean isExtra, int sandwichSize, String toppingName) {
+        super(isExtra, sandwichSize, toppingName);
     }
 
     @Override
     public double calculatePrice() {
-        double total = 0;
-        for(Topping cheese: cheeses) {
-            switch(super.getSandwichSize()) {
-                case 4:
-                    if(isExtra()) {
-                        total += 0.50;
-                    }
-                    total += 1;
-                    break;
-                case 8:
-                    if(isExtra()) {
-                        total += 1;
-                    }
-                    total += 2;
-                case 12:
-                    if(isExtra()) {
-                        total += 1.50;
-                    }
-                    total += 3;
-            }
+        switch(super.getSandwichSize()) {
+            case 4:
+                price = 0.75;
+                if(isExtra()) {
+                    price += 0.30;
+                }
+                break;
+            case 8:
+                price = 1.50;
+                if(isExtra()) {
+                    price += 0.60;
+                }
+            case 12:
+                price = 2.25;
+                if(isExtra()) {
+                    price += 0.90;
+                }
         }
-        return total;
+        return price;
     }
 }

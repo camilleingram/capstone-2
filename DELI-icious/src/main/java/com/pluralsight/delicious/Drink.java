@@ -7,11 +7,11 @@ public class Drink implements Priceable{
     private String drinkSize = "";
     private String flavor = "";
     private double price = 0;
-    private List<Drink> drinks = new ArrayList<>();
 
     public Drink(String drinkSize, String flavor) {
         this.drinkSize = drinkSize;
         this.flavor = flavor;
+        this.price = price;
     }
 
     public String getDrinkSize() {
@@ -22,26 +22,18 @@ public class Drink implements Priceable{
         return flavor;
     }
 
-    public List<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public void addDrinks(Drink drink) {
-        drinks.add(drink);
-    }
-
     @Override
     public double calculatePrice() {
 
         switch(drinkSize) {
             case "Small":
-                price += 2.00;
+                price = 2.00;
                 break;
             case "Medium":
-                price += 2.50;
+                price = 2.50;
                 break;
             case "Large":
-                price += 3.00;
+                price = 3.00;
                 break;
         }
         return price;
